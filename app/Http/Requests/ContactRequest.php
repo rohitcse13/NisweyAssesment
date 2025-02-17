@@ -34,8 +34,8 @@ class ContactRequest extends FormRequest
         return [
             'first_name.required' => 'First name is required.',
             'phone_number.required' => 'Phone number is required.',
-            'phone_number.unique' => 'This phone number is already taken.',
-            'phone_number.regex' => 'Phone number must be between 10 and 15 digits and may include a leading +.',
+            'phone_number.unique' => 'A user with this phone number already exists.',
+            'phone_number.regex' => 'Please enter a valid phone number in the format: +910000000000.',
         ];
     }
 }

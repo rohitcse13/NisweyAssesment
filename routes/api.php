@@ -19,9 +19,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/contacts', [ContactController::class, 'index']);
-Route::post('/contacts', [ContactController::class, 'store']);
-Route::get('/contacts/{id}', [ContactController::class, 'show']);
-Route::put('/contacts/{id}', [ContactController::class, 'update']);
-Route::delete('/contacts/{id}', [ContactController::class, 'destroy']);
-Route::post('/contacts/import', [ContactController::class, 'importXML']);
+Route::get('/view-contacts', [ContactController::class, 'index']);
+Route::post('/save-contacts', [ContactController::class, 'store']);
+Route::get('/view-contact/{id}', [ContactController::class, 'show']);
+Route::put('/update-contacts/{id}', [ContactController::class, 'update']);
+Route::delete('/delete-contacts/{id}', [ContactController::class, 'destroy']);
+Route::post('/upload-contacts', [ContactController::class, 'importXML']);

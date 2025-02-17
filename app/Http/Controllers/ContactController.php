@@ -123,7 +123,7 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        $data = Contact::findOrFail($id);
+        $data = Contact::find($id);
         if ($data) {
             return response()->json([
                 'hasError' => 'false',

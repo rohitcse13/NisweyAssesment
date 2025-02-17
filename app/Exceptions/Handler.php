@@ -78,15 +78,15 @@ class Handler extends ExceptionHandler
         });
 
         // Handle database query error
-        // $this->renderable(function (QueryException $e) {
-        //     return response()->json([
-        //         'hasError' => true,
-        //         'status' => 'error',
-        //         'statuscode' => 500,
-        //         'message' => 'An error occured.',
-        //         'data' => null
-        //     ], 500);
-        // });
+        $this->renderable(function (QueryException $e) {
+            return response()->json([
+                'hasError' => true,
+                'status' => 'error',
+                'statuscode' => 500,
+                'message' => 'An error occured.',
+                'data' => null
+            ], 500);
+        });
 
         // Handle route not found error
         $this->renderable(function (NotFoundHttpException $e) {
@@ -100,14 +100,14 @@ class Handler extends ExceptionHandler
         });
 
         // Catch any other unhandled exceptions
-        // $this->renderable(function (Throwable $e) {
-        //     return response()->json([
-        //         'hasError' => true,
-        //         'status' => 'error',
-        //         'statuscode' => 500,
-        //         'message' => 'An unexpected error occurred',
-        //         'data' => null
-        //     ], 500);
-        // });
+        $this->renderable(function (Throwable $e) {
+            return response()->json([
+                'hasError' => true,
+                'status' => 'error',
+                'statuscode' => 500,
+                'message' => 'An unexpected error occurred',
+                'data' => null
+            ], 500);
+        });
     }
 }
